@@ -2,7 +2,7 @@
 namespace GDO\Backup;
 
 use GDO\Core\Module;
-use GDO\Type\GDO_Char;
+use GDO\Type\GDT_Char;
 
 final class Module_Backup extends Module
 {
@@ -10,7 +10,7 @@ final class Module_Backup extends Module
 	public function getConfig()
 	{
 		return array(
-			GDO_Char::make('backup_lastdate')->size(8)->initial('19700101'),
+			GDT_Char::make('backup_lastdate')->size(8)->initial('19700101'),
 		);
 	}
 	public function cfgLastDate() { return $this->getConfigVar('backup_lastdate'); }
