@@ -2,11 +2,12 @@
 namespace GDO\Backup;
 
 use GDO\Core\GDO_Module;
-use GDO\Type\GDT_Char;
+use GDO\DB\GDT_Char;
 
 final class Module_Backup extends GDO_Module
 {
 	public $module_priority = 100;
+	public function defaultEnabled() { return false; }
 	public function getConfig()
 	{
 		return array(
