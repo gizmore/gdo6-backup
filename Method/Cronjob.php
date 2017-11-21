@@ -4,6 +4,9 @@ namespace GDO\Backup\Method;
 use GDO\Backup\Module_Backup;
 use GDO\Core\MethodCronjob;
 use GDO\File\FileUtil;
+use GDO\Register\Module_Register;
+use GDO\Mail\Mail;
+use GDO\User\GDO_User;
 
 final class Cronjob extends MethodCronjob
 {
@@ -54,7 +57,7 @@ final class Cronjob extends MethodCronjob
 
 	private function doFilesDump()
 	{
-	    $src = GWF_PATH . 'dbimg/files';
+	    $src = GWF_PATH . 'files';
 	    $sitename = sitename();
 	    $today = date('Ymd');
 	    $path = $this->tempDir() . "$sitename.$today.files.zip";
@@ -83,5 +86,25 @@ final class Cronjob extends MethodCronjob
 	        $this->logError("Could not create archive");
 	    }
 	    
+	    # If we want backups sent via mail...
+	    if (Module_Backup::instance()->cfgSendMail())
+	    {
+	    	# Send via mail
+	    	$this->sendBackupPerMail($path);
+	    }
 	}
-}	
+	
+	private function sendBackupPerMail($path)
+	{
+		$filename = sitename().'.'.date('Ymd').'.zip';
+		foreach (GDO_User::admins() as $admin)
+		{
+			$mail = Mail::botMail();
+			$mail->setSubject(tusr($admin, 'mail_subj_backup'));
+			$args = [$admin->displayNameLabel()];
+			$mail->setBody(tusr($admin, 'mail_body_backup', $args));
+			$mail->addAttachmentFile($filename, $path);
+			$mail->sendToUser($admin);
+		}
+	}
+}
