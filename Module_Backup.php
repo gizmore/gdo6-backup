@@ -17,6 +17,7 @@ final class Module_Backup extends GDO_Module
 		);
 	}
 	public function cfgLastDate() { return $this->getConfigVar('backup_lastdate'); }
+	public function cfgSendMail() { return $this->getConfigValue('backup_send_mail'); }
 	
 	
 }
