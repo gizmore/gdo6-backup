@@ -4,7 +4,6 @@ namespace GDO\Backup\Method;
 use GDO\Backup\Module_Backup;
 use GDO\Core\MethodCronjob;
 use GDO\File\FileUtil;
-use GDO\Register\Module_Register;
 use GDO\Mail\Mail;
 use GDO\User\GDO_User;
 
