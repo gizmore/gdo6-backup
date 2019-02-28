@@ -60,7 +60,7 @@ final class Cronjob extends MethodCronjob
 	    $sitename = sitename();
 	    $today = date('Ymd');
 	    $path = $this->tempDir() . "$sitename.$today.files.zip";
-	    $command = "zip -r9 $path $src";
+	    $command = "zip -j -r9 $path $src";
 	    $output = null; $return_val = null;
 	    exec($command, $output, $return_val);
 	    if ($return_val !== 0)
@@ -77,7 +77,7 @@ final class Cronjob extends MethodCronjob
 	    $today = date('Ymd');
 	    FileUtil::createDir($backupPath);
 	    $path = "$backupPath$sitename.$today.zip";
-	    $command = "zip -r0 $path $src";
+	    $command = "zip -j -r0 $path $src";
 	    $output = null; $return_val = null;
 	    exec($command, $output, $return_val);
 	    if ($return_val !== 0)
