@@ -2,10 +2,10 @@
 namespace GDO\Backup\Method;
 
 use GDO\Backup\Module_Backup;
-use GDO\Core\MethodCronjob;
 use GDO\File\FileUtil;
 use GDO\Mail\Mail;
 use GDO\User\GDO_User;
+use GDO\Cronjob\MethodCronjob;
 
 final class Cronjob extends MethodCronjob
 {
