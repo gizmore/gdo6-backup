@@ -24,7 +24,7 @@ final class Cronjob extends MethodCronjob
 	
 	private function tempDir()
 	{
-	    return GWF_PATH . 'temp/backup/';
+	    return GDO_PATH . 'temp/backup/';
 	}
 	
 	private function doBackup()
@@ -56,7 +56,7 @@ final class Cronjob extends MethodCronjob
 
 	private function doFilesDump()
 	{
-	    $src = GWF_PATH . 'files';
+	    $src = GDO_PATH . 'files';
 	    $sitename = sitename();
 	    $today = date('Ymd');
 	    $path = $this->tempDir() . "$sitename.$today.files.zip";
@@ -72,7 +72,7 @@ final class Cronjob extends MethodCronjob
 	private function createArchive()
 	{
 	    $src = $this->tempDir();
-	    $backupPath = GWF_PATH . "protected/backup/";
+	    $backupPath = GDO_PATH . "protected/backup/";
 	    $sitename = sitename();
 	    $today = date('Ymd');
 	    FileUtil::createDir($backupPath);
