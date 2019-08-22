@@ -99,8 +99,8 @@ final class Cronjob extends MethodCronjob
 		foreach (GDO_User::admins() as $admin)
 		{
 			$mail = Mail::botMail();
-			$mail->setSubject(tusr($admin, 'mail_subj_backup'));
-			$args = [$admin->displayNameLabel()];
+			$mail->setSubject(tusr($admin, 'mail_subj_backup', [sitename()]));
+			$args = [$admin->displayNameLabel(), sitename()];
 			$mail->setBody(tusr($admin, 'mail_body_backup', $args));
 			$mail->addAttachmentFile($filename, $path);
 			$mail->sendToUser($admin);
