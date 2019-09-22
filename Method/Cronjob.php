@@ -27,7 +27,7 @@ final class Cronjob extends MethodCronjob
 	    return GDO_PATH . 'temp/backup/';
 	}
 	
-	private function doBackup()
+	public function doBackup()
 	{
 	    FileUtil::removeDir($this->tempDir());
 	    FileUtil::createDir($this->tempDir());
