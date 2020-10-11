@@ -77,7 +77,7 @@ final class ImportBackup extends MethodForm
 		unlink($backup);
 		
 		# Import files
-		Filewalker::traverse($path, '*.zip', function($entry, $fullpath, $path) {
+		Filewalker::traverse($path, '/\\.zip$/', function($entry, $fullpath, $path) {
 			$path = $path . 'files/';
 			FileUtil::createDir($path);
 			$zip = new \ZipArchive();
@@ -91,7 +91,7 @@ final class ImportBackup extends MethodForm
 			
 		
 		# Import DB
-		Filewalker::traverse($path, '*.gz', function($entry, $fullpath){
+		    Filewalker::traverse($path, '/\\.gz$/', function($entry, $fullpath){
 			$dump = file_get_contents($fullpath);
 			$newpath = realpath($fullpath.'.sql');
 			file_put_contents($newpath, gzdecode($dump));

@@ -40,7 +40,7 @@ final class ListBackups extends MethodTable
 	public function getBackups()
 	{
 		$this->backups = [];
-		Filewalker::traverse(GDO_PATH.'protected/backup', '*.zip', [$this, 'addBackup']);
+		Filewalker::traverse(GDO_PATH.'protected/backup', '/\\.zip$/', [$this, 'addBackup']);
 		return $this->backups;
 	}
 	

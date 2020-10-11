@@ -83,6 +83,7 @@ final class Cronjob extends MethodCronjob
 	    if ($return_val !== 0)
 	    {
 	        $this->logError("Could not create archive");
+	        return false;
 	    }
 	    
 	    # If we want backups sent via mail...
