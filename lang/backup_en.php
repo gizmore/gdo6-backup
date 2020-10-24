@@ -16,7 +16,7 @@ return array(
 'btn_download' => 'Download',
 ### Mail
 'mail_subj_backup' => '%s: Backup',
-'' => '
+'mail_body_backup' => '
 Hello %s,
 
 Attached is the latest backup.
