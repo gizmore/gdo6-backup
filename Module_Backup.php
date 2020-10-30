@@ -14,7 +14,7 @@ final class Module_Backup extends GDO_Module
 	public function getConfig()
 	{
 		return array(
-			GDT_Char::make('backup_lastdate')->size(8)->initial('19700101')->editable(false),
+			GDT_Char::make('backup_lastdate')->length(8)->initial('19700101')->editable(false),
 			GDT_Checkbox::make('backup_send_mail')->initial('0'),
 		);
 	}
