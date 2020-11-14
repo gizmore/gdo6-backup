@@ -3,38 +3,40 @@ namespace GDO\Backup\Method;
 
 use GDO\Table\MethodTable;
 use GDO\DB\ArrayResult;
-use GDO\Core\GDT_Response;
 use GDO\Core\MethodAdmin;
 use GDO\File\Filewalker;
 use GDO\Backup\GDO_Backup;
 use GDO\Date\Time;
 use GDO\UI\GDT_Button;
 
+/**
+ * List of Backups with downloads.
+ * @author gizmore
+ */
 final class ListBackups extends MethodTable
 {
 	use MethodAdmin;
 	
 	private $backups;
 	
-	public function getHeaders()
+	public function gdoTable() { return GDO_Backup::table(); }
+	
+	public function gdoHeaders()
 	{
 		$backups = GDO_Backup::table();
-		return array(
+		return [
 			GDT_Button::make('backup_link')->label('btn_download'),
 			$backups->gdoColumn('backup_size'),
 			$backups->gdoColumn('backup_name'),
 			$backups->gdoColumn('backup_path'),
 			$backups->gdoColumn('backup_created'),
-		);
+		];
 	}
 	
-	public function execute()
+	public function beforeExecute()
 	{
-		return GDT_Response::makeWith(
-			$this->renderNavBar(),
-			Admin::make()->renderBackupNavBar(),
-			parent::execute()
-		);
+	    $this->renderNavBar();
+		Admin::make()->renderBackupNavBar();
 	}
 	
 	public function getBackups()
@@ -58,6 +60,5 @@ final class ListBackups extends MethodTable
 	{
 		return new ArrayResult($this->getBackups(), GDO_Backup::table());
 	}
-
 	
 }

@@ -10,7 +10,6 @@ use GDO\Form\GDT_AntiCSRF;
 use GDO\File\GDO_File;
 use GDO\File\FileUtil;
 use GDO\Core\MethodAdmin;
-use GDO\UI\GDT_Paragraph;
 use GDO\DB\Database;
 use GDO\DB\Cache;
 use GDO\Core\GDT_Hook;
@@ -19,8 +18,8 @@ use GDO\File\Filewalker;
 /**
  * Import a backup.
  * @author gizmore
- * @since 6.10
  * @version 6.10
+ * @since 6.10
  */
 final class ImportBackup extends MethodForm
 {
@@ -108,6 +107,7 @@ final class ImportBackup extends MethodForm
 		# Hook
 		GDT_Hook::callWithIPC("BackupImported");
 		
-		return GDT_Response::makeWith(GDT_Paragraph::withHTML('HI'));
+		return $this->message('msg_backup_imported');
 	}
+	
 }
