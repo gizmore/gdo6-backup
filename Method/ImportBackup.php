@@ -14,6 +14,7 @@ use GDO\DB\Database;
 use GDO\DB\Cache;
 use GDO\Core\GDT_Hook;
 use GDO\File\Filewalker;
+use GDO\Admin\Module_Admin;
 
 /**
  * Import a backup.
@@ -27,15 +28,12 @@ final class ImportBackup extends MethodForm
 	
 	public function getPermission() { return 'admin'; }
 	
-	public function renderPage()
+	public function beforeExecute()
 	{
-		return GDT_Response::makeWith(
-			$this->renderNavBar(),
-			Admin::make()->renderBackupNavBar(),
-			parent::renderPage()
-		);
+	    $this->renderNavBar();
+	    Admin::make()->renderBackupNavBar();
 	}
-	
+
 	public function createForm(GDT_Form $form)
 	{
 		$form->addFields(array(
