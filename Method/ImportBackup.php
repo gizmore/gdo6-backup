@@ -124,14 +124,13 @@ final class ImportBackup extends MethodForm
 		    }
 // 		    Database::instance()->connect();
 		});
-		$this->message('msg_imported_mysql_db');
-		    
-		
         if (GDT_Response::globalError())
         {
             return null;
         }
-		
+        
+        $this->message('msg_imported_mysql_db');
+        
 	    # Backup current config
         $path = $this->extractDir();
         rename(GDO_PATH.'protected/config.php', GDO_PATH.'protected/' . date('YmdHis') . '_config.php');

@@ -35,4 +35,5 @@ Das %s System.',
 'msg_imported_backup_files_db' => 'Der files/ Ordner wurde wiederhergestellt.',
 'msg_imported_mysql_db' => 'Die Datenbank wurde erfolgreich importiert.',
 'msg_replaced_config' => 'Die config.php wurde ersetzt.',
+'err_source_mysql_backup' => 'Die Datenbank-Datei scheint beschädigt.',
 );

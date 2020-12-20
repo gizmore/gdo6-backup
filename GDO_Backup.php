@@ -8,9 +8,15 @@ use GDO\Date\GDT_DateTime;
 use GDO\File\FileUtil;
 use GDO\File\GDO_File;
 use GDO\Date\Time;
-use GDO\UI\GDT_Button;
 use GDO\File\GDT_Filesize;
 
+/**
+ * This GDO is not installed to the database.
+ * They get created from the file system.
+ * @author gizmore
+ * @version 6.10
+ * @since 6.08
+ */
 final class GDO_Backup extends GDO
 {
 	public function gdoColumns()

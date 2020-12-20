@@ -35,4 +35,5 @@ The %s system.',
 'msg_imported_backup_files_db' => 'The files folder has been restored.',
 'msg_imported_mysql_db' => 'The database has been imported.',
 'msg_replaced_config' => 'The config.php has been replaced.',
+'err_source_mysql_backup' => 'The Database file seems corrupt.',
 );
