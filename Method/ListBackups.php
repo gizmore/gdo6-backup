@@ -28,7 +28,7 @@ final class ListBackups extends MethodTable
 			GDT_Button::make('backup_link')->label('btn_download'),
 			$backups->gdoColumn('backup_size'),
 			$backups->gdoColumn('backup_name'),
-			$backups->gdoColumn('backup_path'),
+// 			$backups->gdoColumn('backup_path'),
 			$backups->gdoColumn('backup_created'),
 		];
 	}

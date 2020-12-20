@@ -23,4 +23,16 @@ Das neueste Backup ist angehängt.
 
 Viele Grüße,
 Das %s System.',
+# mysqldump
+'cfg_mysql_path' => 'Pfad zum MySQL client',
+'cfg_mysqldump_path' => 'Pfad zu mysqldump',
+'msg_backup_created' => 'Ein neues Backup wurde erstellt.',
+'link_backup_detect_mysqldump' => 'Finde Mysqldump',
+'ft_backup_detectmysqldump' => 'Finde Mysqldump',
+'err_gunzip_backup' => 'Die Datenbank konnte nicht entpackt werden.',
+'msg_backup_imported' => 'Das Backup wurde erfolgreich importiert.',
+'msg_extracted_backup' => 'Das Backup wurde entpackt.',
+'msg_imported_backup_files_db' => 'Der files/ Ordner wurde wiederhergestellt.',
+'msg_imported_mysql_db' => 'Die Datenbank wurde erfolgreich importiert.',
+'msg_replaced_config' => 'Die config.php wurde ersetzt.',
 );

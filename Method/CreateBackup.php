@@ -30,6 +30,7 @@ final class CreateBackup extends MethodForm
 	public function formValidated(GDT_Form $form)
 	{
 		Cronjob::make()->doBackup();
+		$this->message('msg_backup_created');
 		return $this->renderPage();
 	}
 	

@@ -23,4 +23,16 @@ Attached is the latest backup.
 
 Kind Regards,
 The %s system.',
+# mysqldump
+'cfg_mysql_path' => 'Path to mysql binary client',
+'cfg_mysqldump_path' => 'Path to mysqldump binary',
+'link_backup_detect_mysqldump' => 'Detect Mysqldump',
+'ft_backup_detectmysqldump' => 'Detect Mysqldump',
+'msg_backup_created' => 'A fresh backup has been created.',
+'err_gunzip_backup' => 'Cannot gunzip the database backup.',
+'msg_backup_imported' => 'The backup has been imported successfully.',
+'msg_extracted_backup' => 'The backup has been unzipped.',
+'msg_imported_backup_files_db' => 'The files folder has been restored.',
+'msg_imported_mysql_db' => 'The database has been imported.',
+'msg_replaced_config' => 'The config.php has been replaced.',
 );
