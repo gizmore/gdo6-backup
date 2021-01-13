@@ -51,7 +51,7 @@ final class DetectMysqldump extends MethodForm
         if ($path = Process::commandPath("mysqldump"))
         {
             Module_Backup::instance()->saveConfigVar('mysqldump_path', $path);
-            Website::redirectMessage('msg_detected_mysqldump', null, href('Admin', 'Config', "&module=Backup"));
+            Website::redirectMessage('msg_detected_mysqldump', null, href('Admin', 'Configure', "&module=Backup"));
         }
         else
         {

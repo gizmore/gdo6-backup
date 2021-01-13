@@ -36,4 +36,7 @@ The %s system.',
 'msg_imported_mysql_db' => 'The database has been imported.',
 'msg_replaced_config' => 'The config.php has been replaced.',
 'err_source_mysql_backup' => 'The Database file seems corrupt.',
+'msg_detected_mysqldump' => 'mysqldump has been detected.',
+    
+    
 );
