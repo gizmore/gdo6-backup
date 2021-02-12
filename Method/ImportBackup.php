@@ -42,8 +42,8 @@ final class ImportBackup extends MethodForm
 		$form->addFields(array(
 		    GDT_File::make('backup_file')->maxsize(1024*1024*1024)->notNull(), # max 1GB
 			GDT_AntiCSRF::make(),
-			GDT_Submit::make(),
 		));
+		$form->actions()->addField(GDT_Submit::make());
 	}
 	
 	public function formValidated(GDT_Form $form)

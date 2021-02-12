@@ -28,9 +28,9 @@ final class DetectMysqldump extends MethodForm
     public function createForm(GDT_Form $form)
     {
         $form->addFields([
-            GDT_Submit::make(),
             GDT_AntiCSRF::make(),
         ]);
+        $form->actions()->addField(GDT_Submit::make());
     }
     
     public function formValidated(GDT_Form $form)
