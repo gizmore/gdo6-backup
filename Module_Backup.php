@@ -6,6 +6,16 @@ use GDO\DB\GDT_Char;
 use GDO\DB\GDT_Checkbox;
 use GDO\File\GDT_Path;
 
+/**
+ * Backup system for gdo6.
+ * - Send backups via mail (optionally)
+ * - One-click backup generation and import
+ * - Backups include config, db-files and the database.
+ * @TODO During an import, we want to change some config.php settings when successful; domain, db, etc.
+ * @author gizmore
+ * @version 6.10
+ * @since 6.07
+ */
 final class Module_Backup extends GDO_Module
 {
 	public $module_priority = 100;
@@ -15,12 +25,12 @@ final class Module_Backup extends GDO_Module
 	public function getDependencies() { return ['ZIP']; }
 	public function getConfig()
 	{
-		return array(
+		return [
 			GDT_Char::make('backup_lastdate')->length(8)->initial('19700101')->editable(false),
 			GDT_Checkbox::make('backup_send_mail')->initial('0'),
 		    GDT_Path::make('mysql_path')->initial('mysql')->existingFile(),
 		    GDT_Path::make('mysqldump_path')->initial('mysqldump')->existingFile(),
-		);
+		];
 	}
 	public function cfgLastDate() { return $this->getConfigVar('backup_lastdate'); }
 	public function cfgSendMail() { return $this->getConfigValue('backup_send_mail'); }
