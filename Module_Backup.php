@@ -5,6 +5,7 @@ use GDO\Core\GDO_Module;
 use GDO\DB\GDT_Char;
 use GDO\DB\GDT_Checkbox;
 use GDO\File\GDT_Path;
+use GDO\Backup\Method\DetectMysqldump;
 
 /**
  * Backup system for gdo6.
@@ -13,8 +14,8 @@ use GDO\File\GDT_Path;
  * - Backups include config, db-files and the database.
  * @TODO During an import, we want to change some config.php settings when successful; domain, db, etc.
  * @author gizmore
- * @version 6.10
- * @since 6.07
+ * @version 6.10.1
+ * @since 6.0.7
  */
 final class Module_Backup extends GDO_Module
 {
@@ -23,6 +24,10 @@ final class Module_Backup extends GDO_Module
 	public function onLoadLanguage() { return $this->loadLanguage('lang/backup'); }
 	public function href_administrate_module() { return href('Backup', 'Admin'); }
 	public function getDependencies() { return ['ZIP']; }
+	
+	##############
+	### Config ###
+	##############
 	public function getConfig()
 	{
 		return [
@@ -36,5 +41,13 @@ final class Module_Backup extends GDO_Module
 	public function cfgSendMail() { return $this->getConfigValue('backup_send_mail'); }
 	public function cfgMysqlPath() { return $this->getConfigVar('mysql_path'); }
 	public function cfgMysqldumpPath() { return $this->getConfigVar('mysqldump_path'); }
+
+	###############
+	### Install ###
+	###############
+	public function onInstall()
+	{
+	    DetectMysqldump::make()->detect();
+	}
 	
 }

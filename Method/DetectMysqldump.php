@@ -33,6 +33,11 @@ final class DetectMysqldump extends MethodForm
         $form->actions()->addField(GDT_Submit::make());
     }
     
+    public function detect()
+    {
+        return $this->formValidated($this->getForm());
+    }
+    
     public function formValidated(GDT_Form $form)
     {
         # Detect mysql
@@ -44,7 +49,7 @@ final class DetectMysqldump extends MethodForm
         else
         {
             return $this->error('err_file_not_found', ['mysql'])->
-            add($this->renderPage());
+                add($this->renderPage());
         }
         
         # Detect mysqldump
@@ -56,7 +61,7 @@ final class DetectMysqldump extends MethodForm
         else
         {
             return $this->error('err_file_not_found', ['mysqldump'])->
-            add($this->renderPage());
+                add($this->renderPage());
         }
     }
     
