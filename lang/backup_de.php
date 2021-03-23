@@ -37,4 +37,6 @@ Das %s System.',
 'msg_replaced_config' => 'Die config.php wurde ersetzt.',
 'err_source_mysql_backup' => 'Die Datenbank-Datei scheint beschädigt.',
 'msg_detected_mysqldump' => 'mysqldump wurde gefunden.',
+'list_backup_listbackups' => '%s Backups gefunden',
+'info_import_backup' => 'Ein Import zerstört die aktuelle Seite. Sind Sie sicher?',
 );

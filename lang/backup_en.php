@@ -37,6 +37,6 @@ The %s system.',
 'msg_replaced_config' => 'The config.php has been replaced.',
 'err_source_mysql_backup' => 'The Database file seems corrupt.',
 'msg_detected_mysqldump' => 'mysqldump has been detected.',
-    
-    
+'list_backup_listbackups' => '%s Backups available',
+'info_import_backup' => 'An import will destroy the current site. Are you sure?',
 );

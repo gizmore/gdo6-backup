@@ -21,15 +21,17 @@ final class ListBackups extends MethodTable
 	
 	public function gdoTable() { return GDO_Backup::table(); }
 	
+	public function getDefaultOrderDir() { return false; }
+	
 	public function gdoHeaders()
 	{
 		$backups = GDO_Backup::table();
 		return [
 			GDT_DownloadButton::make('backup_link'),
+			$backups->gdoColumn('backup_created'),
 			$backups->gdoColumn('backup_size'),
 			$backups->gdoColumn('backup_name'),
 // 			$backups->gdoColumn('backup_path'),
-			$backups->gdoColumn('backup_created'),
 		];
 	}
 	
