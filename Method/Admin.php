@@ -6,6 +6,7 @@ use GDO\Core\MethodAdmin;
 use GDO\UI\GDT_Bar;
 use GDO\UI\GDT_Link;
 use GDO\UI\GDT_Page;
+use GDO\Core\Application;
 
 /**
  * A backup admin method. renders backup tabs.
@@ -22,7 +23,10 @@ final class Admin extends Method
 	
 	public function renderBackupNavBar()
 	{
-		GDT_Page::$INSTANCE->topTabs->addField($this->backupNavBar());
+	    if (Application::instance()->isHTML())
+	    {
+	        GDT_Page::$INSTANCE->topTabs->addField($this->backupNavBar());
+	    }
 	}
 	
 	public function backupNavBar()
