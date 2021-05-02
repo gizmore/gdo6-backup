@@ -106,9 +106,9 @@ final class ImportBackup extends MethodForm
 			$zip->close();
 			unlink($fullpath);
 			# Delete old
-			FileUtil::removeDir(GDO_PATH.'files');
+			FileUtil::removeDir(GDO_File::filesDir());
 			# Rename new
-			rename($path, GDO_PATH.'files');
+			rename($path, GDO_File::filesDir());
 		}, false, false, $path);
 		$this->message('msg_imported_backup_files_db');
 		    

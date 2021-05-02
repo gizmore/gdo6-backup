@@ -7,6 +7,7 @@ use GDO\Mail\Mail;
 use GDO\User\GDO_User;
 use GDO\Cronjob\MethodCronjob;
 use GDO\ZIP\Module_ZIP;
+use GDO\File\GDO_File;
 
 /**
  * Create a full site data backup.
@@ -117,7 +118,7 @@ final class Cronjob extends MethodCronjob
 
 	private function doFilesDump()
 	{
-	    $src = GDO_PATH . 'files';
+	    $src = rtrim(GDO_File::filesDir(), '/');
 	    $src = FileUtil::path($src);
 	    $sitename = GWF_SITENAME;
 	    $today = date('Ymd');
