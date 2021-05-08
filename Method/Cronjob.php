@@ -75,14 +75,14 @@ final class Cronjob extends MethodCronjob
 	
 	private function doMysqlDump()
 	{
-	    $sitename = GWF_SITENAME;
+	    $sitename = GDO_SITENAME;
 	    $today = date('Ymd');
 	    $path = $this->tempDir() . "$sitename.$today.sql";
 	    $path = FileUtil::path($path);
 	    
-	    $username = GWF_DB_USER;
-	    $password = GWF_DB_PASS;
-	    $database = GWF_DB_NAME;
+	    $username = GDO_DB_USER;
+	    $password = GDO_DB_PASS;
+	    $database = GDO_DB_NAME;
 	    
 	    $mysqldump = Module_Backup::instance()->cfgMysqldumpPath();
 	    
@@ -120,7 +120,7 @@ final class Cronjob extends MethodCronjob
 	{
 	    $src = rtrim(GDO_File::filesDir(), '/');
 	    $src = FileUtil::path($src);
-	    $sitename = GWF_SITENAME;
+	    $sitename = GDO_SITENAME;
 	    $today = date('Ymd');
 	    $path = $this->tempDir() . "$sitename.$today.files.zip";
 	    $path = FileUtil::path($path);
@@ -144,7 +144,7 @@ final class Cronjob extends MethodCronjob
 	    $src = $this->tempDir();
 	    $src = FileUtil::path($src);
 	    $backupPath = GDO_PATH . "protected/backup/";
-	    $sitename = GWF_SITENAME;
+	    $sitename = GDO_SITENAME;
 	    $today = date('Ymd');
 	    FileUtil::createDir($backupPath);
 	    $path = "$backupPath$sitename.$today.zip";

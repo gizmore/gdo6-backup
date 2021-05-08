@@ -128,9 +128,9 @@ final class ImportBackup extends MethodForm
 		    
 		    # Import
 		    $mysql = Module_Backup::instance()->cfgMysqlPath();
-		    $user = GWF_DB_USER;
-		    $pass = GWF_DB_PASS;
-		    $db = GWF_DB_NAME;
+		    $user = GDO_DB_USER;
+		    $pass = GDO_DB_PASS;
+		    $db = GDO_DB_NAME;
 		    Database::instance()->closeLink();
 		    $newpath = substr($fullpath, 0, -3);
 		    $command = "$mysql -u $user -p{$pass} $db < $newpath";
@@ -155,13 +155,13 @@ final class ImportBackup extends MethodForm
 	    rename("{$path}config.php", GDO_PATH.'protected/config.php');
 	    
 	    $configFile = file(GDO_PATH.'protected/config.php');
-	    $configFile = $this->replaceConfig($configFile, 'GWF_DB_HOST', GWF_DB_HOST);
-	    $configFile = $this->replaceConfig($configFile, 'GWF_DB_NAME', GWF_DB_NAME);
-	    $configFile = $this->replaceConfig($configFile, 'GWF_DB_USER', GWF_DB_USER);
-	    $configFile = $this->replaceConfig($configFile, 'GWF_DB_PASS', GWF_DB_PASS);
-	    $configFile = $this->replaceConfig($configFile, 'GWF_DOMAIN', $form->getFormVar('hostname'));
-	    $configFile = $this->replaceConfig($configFile, 'GWF_SESS_DOMAIN', $form->getFormVar('cookie_domain'));
-	    $configFile = $this->replaceConfig($configFile, 'GWF_ENABLE_EMAIL', $form->getFormVar('enable_email'));
+	    $configFile = $this->replaceConfig($configFile, 'GDO_DB_HOST', GDO_DB_HOST);
+	    $configFile = $this->replaceConfig($configFile, 'GDO_DB_NAME', GDO_DB_NAME);
+	    $configFile = $this->replaceConfig($configFile, 'GDO_DB_USER', GDO_DB_USER);
+	    $configFile = $this->replaceConfig($configFile, 'GDO_DB_PASS', GDO_DB_PASS);
+	    $configFile = $this->replaceConfig($configFile, 'GDO_DOMAIN', $form->getFormVar('hostname'));
+	    $configFile = $this->replaceConfig($configFile, 'GDO_SESS_DOMAIN', $form->getFormVar('cookie_domain'));
+	    $configFile = $this->replaceConfig($configFile, 'GDO_ENABLE_EMAIL', $form->getFormVar('enable_email'));
 	    file_put_contents(GDO_PATH.'protected/config.php', implode('', $configFile));
 	    $this->message('msg_replaced_config');
 	    
