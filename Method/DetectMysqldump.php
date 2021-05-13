@@ -49,7 +49,7 @@ final class DetectMysqldump extends MethodForm
         else
         {
             return $this->error('err_file_not_found', ['mysql'])->
-                add($this->renderPage());
+                addField($this->renderPage());
         }
         
         # Detect mysqldump
@@ -61,7 +61,7 @@ final class DetectMysqldump extends MethodForm
         else
         {
             return $this->error('err_file_not_found', ['mysqldump'])->
-                add($this->renderPage());
+                addField($this->renderPage());
         }
     }
     
