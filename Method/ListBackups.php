@@ -21,7 +21,7 @@ final class ListBackups extends MethodTable
 	
 	public function gdoTable() { return GDO_Backup::table(); }
 	
-	public function getDefaultOrderDir() { return false; }
+	public function getDefaultOrder() { return 'backup_created DESC'; }
 	
 	public function gdoHeaders()
 	{
