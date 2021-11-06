@@ -86,7 +86,7 @@ final class Cronjob extends MethodCronjob
 	    
 	    $mysqldump = Module_Backup::instance()->cfgMysqldumpPath();
 	    
-	    $command = "$mysqldump --add-drop-table --no-create-db --skip-lock-tables --databases $database -u $username -p$password > $path";
+	    $command = "$mysqldump --add-drop-table --no-create-db --skip-lock-tables --databases $database -u $username -p$password $database > $path";
 	    $output = null; $return_val = null;
 	    exec($command, $output, $return_val);
 	    if ($return_val !== 0)
