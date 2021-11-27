@@ -4,7 +4,6 @@ namespace GDO\Backup\Method;
 use GDO\Form\GDT_Form;
 use GDO\Form\MethodForm;
 use GDO\File\GDT_File;
-use GDO\Form\GDT_Submit;
 use GDO\Form\GDT_AntiCSRF;
 use GDO\File\GDO_File;
 use GDO\File\FileUtil;
@@ -18,12 +17,10 @@ use GDO\Core\GDT_Response;
 use GDO\Backup\Module_Backup;
 use GDO\Form\GDT_DeleteButton;
 use GDO\DB\GDT_String;
-use GDO\Install\Config;
 use GDO\Net\GDT_Hostname;
 use GDO\Net\GDT_Url;
 use GDO\DB\GDT_Checkbox;
 use GDO\UI\GDT_Divider;
-use GDO\Form\GDT_Hidden;
 
 /**
  * Import a backup created by GDO Backup module.
@@ -178,7 +175,7 @@ final class ImportBackup extends MethodForm
 	{
 	    foreach ($lines as $n => $line)
 	    {
-	        if (strpos($lines[$n], $key))
+	        if (strpos($line, $key) !== false)
 	        {
 	            $lines[$n] = sprintf("define('$key', '$value');\n");
 	        }

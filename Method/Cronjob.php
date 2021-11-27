@@ -22,23 +22,21 @@ use GDO\File\GDO_File;
  * - Database via mysqldump binary
  * 
  * @author gizmore
- * @version 6.10.1
+ * @version 6.11.0
  * @since 6.3.0
  * @see Module_ZIP
  */
 final class Cronjob extends MethodCronjob
 {
+	public function runAt()
+	{
+		return $this->runDailyAt(3);
+	}
+	
 	public function run()
 	{
-		$module = Module_Backup::instance();
-		$last = $module->cfgLastDate();
-		$curr = date('Ymd');
-		if ($last !== $curr)
-		{
-			$this->logNotice("Doing backup for $curr");
-			$this->doBackup();
-			$module->saveConfigVar('backup_lastdate', $curr);
-		}
+		$this->logNotice("Doing daily backup");
+		$this->doBackup();
 	}
 	
 	private function tempDir()
@@ -183,4 +181,5 @@ final class Cronjob extends MethodCronjob
 			$mail->sendToUser($admin);
 		}
 	}
+	
 }
